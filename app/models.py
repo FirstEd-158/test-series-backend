@@ -24,6 +24,8 @@ class Subject(SQLModel, table=True):
     id: int | None = Field(primary_key=True, default=None)
     name: str = Field(index=True)
     domain_id: int = Field(foreign_key="domain.id", index=True)
+class SubjectCreate(SQLModel):
+    name: str
 
 class TestSeries(SQLModel, table=True):
     id: int | None = Field(primary_key=True, default=None)
