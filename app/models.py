@@ -39,6 +39,9 @@ class Test(SQLModel, table=True):
     name: str = Field(index=True)
     test_series_id: int = Field(foreign_key="testseries.id", index=True)
     subject_id: int = Field(foreign_key="subject.id", index=True)
+class TestCreate(SQLModel):
+    name:str
+    subject_id:int
 
 class Purchase(SQLModel, table=True):
     id: int | None = Field(primary_key=True, default=None)
