@@ -10,9 +10,7 @@ router = APIRouter(prefix="/domains", tags=["Domains"])
 @router.get("/", response_model=List[Domain])
 async def get_domains(session: AsyncSession = Depends(get_session)):
     result = await session.exec(select(Domain))
-    print(result)
     domains = result.scalars().all()
-    print(domains)
     if not domains:
         raise HTTPException(status_code=404, detail="No domains added")
     return domains
