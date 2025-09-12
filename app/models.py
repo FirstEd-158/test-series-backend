@@ -31,6 +31,8 @@ class TestSeries(SQLModel, table=True):
     id: int | None = Field(primary_key=True, default=None)
     name: str = Field(index=True)
     domain_id: int = Field(foreign_key="domain.id", index=True)
+class TestSeriesCreate(SQLModel):
+    name:str
 
 class Test(SQLModel, table=True):
     id: int | None = Field(primary_key=True, default=None)
